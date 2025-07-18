@@ -1,0 +1,470 @@
+:root {
+    --color-primario: #009B4D; /* Verde vibrante */
+    --color-secundario: #FAF5E9; /* Marfil suave */
+    --color-acento: #FFCC00; /* Amarillo mandarina llamativo */
+    --color-texto-oscuro: #333333; /* Negro casi puro */
+    --color-texto-claro: #FFFFFF; /* Blanco */
+    --color-fondo-claro: #FFFFFF; /* Blanco para fondo principal */
+    --color-fondo-seccion: #F2F2F2; /* Gris claro para diferenciar secciones */
+    --color-borde: #CCCCCC; /* Gris claro para bordes sutiles */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Fuente limpia y moderna */
+    color: var(--color-texto-oscuro);
+    background-color: var(--color-fondo-claro);
+    line-height: 1.6;
+    margin: 0; /* Asegurar que no haya márgenes por defecto del body */
+    padding-top: 70px; /* Espacio para el navbar fijo */
+}
+
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 0; /* Ajuste para móviles, el navbar no es tan alto */
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Fuente para títulos, más prominente */
+    font-weight: 700; /* Un poco más de peso para destacar */
+    color: var(--color-primario);
+}
+
+.navbar {
+    background-color: var(--color-primario); /* Fondo verde principal */
+    box-shadow: none; /* Eliminar sombra del navbar */
+    transition: background-color 0.3s ease;
+}
+.navbar-brand, .nav-link {
+    color: var(--color-texto-claro) !important; /* Texto blanco para contraste */
+    font-weight: 500; /* Peso de fuente ligeramente mayor */
+    text-transform: uppercase;
+    font-size: 0.98rem; /* Ligeramente más grande */
+}
+.navbar-brand:hover, .nav-link:hover {
+    color: var(--color-acento) !important; /* Amarillo mandarina al pasar el ratón */
+}
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: var(--color-primario); /* Color de respaldo si el video no carga */
+    color: var(--color-texto-claro);
+    padding: 120px 0 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Asegura que el video no se desborde */
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra el área sin distorsión */
+    z-index: 0; /* Envía el video al fondo */
+    opacity: 0.7; /* Opacidad para que el texto sea legible */
+}
+
+/* Overlay para oscurecer el video y mejorar legibilidad del texto */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Un ligero oscurecimiento */
+    z-index: 1; /* Encima del video, debajo del contenido */
+}
+
+.hero-section h1,
+.hero-section h2,
+.hero-section .btn-primary {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté por encima del video y el overlay */
+}
+
+.hero-section h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-texto-claro);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+}
+.hero-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 50px;
+    color: var(--color-texto-claro);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-section .btn-primary {
+    background-color: var(--color-acento); /* Amarillo mandarina */
+    border-color: var(--color-acento);
+    font-size: 1.4rem;
+    padding: 15px 45px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.hero-section .btn-primary:hover {
+    background-color: var(--color-primario); /* Verde al pasar el ratón */
+    border-color: var(--color-primario);
+    transform: translateY(-3px);
+}
+
+/* Secciones Generales */
+.section-padding {
+    padding: 80px 0;
+}
+.bg-light-wood { /* Usaremos el marfil o gris claro para esto */
+    background-color: var(--color-fondo-seccion);
+}
+.bg-dark-wood { /* Usaremos el color primario (verde) */
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
+}
+.bg-dark-wood h3 {
+    color: var(--color-texto-claro);
+}
+
+/* Quiénes Somos / Nuestra Historia */
+#about p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Servicios */
+.service-card {
+    background-color: var(--color-fondo-claro); /* Fondo blanco */
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    box-shadow: none;
+    padding: 35px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-acento); /* Borde amarillo mandarina al pasar el ratón */
+}
+.service-card i {
+    font-size: 3.2rem;
+    color: var(--color-primario); /* Icono verde principal */
+    margin-bottom: 25px;
+}
+.service-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+.service-card p {
+    font-size: 0.95rem;
+}
+
+/* Portafolio */
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border: 1px solid var(--color-borde);
+}
+.portfolio-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.portfolio-item:hover img {
+    transform: scale(1.03);
+}
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 155, 77, 0.85); /* Usar el RGB del verde principal con opacidad */
+    color: var(--color-texto-claro);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    text-align: center;
+}
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+.portfolio-overlay h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+.portfolio-overlay p {
+    font-size: 0.9rem;
+}
+
+/* Testimonios */
+.testimonial-card {
+    background-color: var(--color-fondo-claro); /* Fondo blanco */
+    color: var(--color-texto-oscuro);
+    padding: 40px;
+    border-radius: 5px;
+    border: 1px solid var(--color-borde);
+    box-shadow: none;
+}
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+.testimonial-card small {
+    font-weight: 600;
+    display: block;
+    text-align: right;
+    color: var(--color-primario); /* Nombre en verde */
+}
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-image: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo sutil para el icono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-control-prev-icon::before {
+    content: '\2039';
+    font-size: 2rem;
+    color: var(--color-texto-claro);
+    line-height: 1;
+}
+.carousel-control-next-icon::before {
+    content: '\203A';
+    font-size: 2rem;
+    color: var(--color-texto-claro);
+    line-height: 1;
+}
+
+/* Proceso de Trabajo */
+.process-step {
+    text-align: center;
+    margin-bottom: 40px; /* Margen inferior para separar filas */
+}
+.process-step .d-flex { /* Ajuste para centrar el icono y el texto debajo */
+    justify-content: center !important;
+}
+
+.process-step i { /* Clase directamente sobre el icono */
+    font-size: 4.5rem; /* Iconos más grandes */
+    color: var(--color-acento); /* Icono amarillo mandarina */
+    margin-bottom: 15px; /* Margen inferior para separar del título */
+    display: block; /* Asegura que el icono ocupe su propio renglón */
+}
+
+.process-step h4 {
+    font-weight: 600;
+    color: var(--color-primario); /* Título verde */
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+.process-step p {
+    font-size: 1rem; /* Ajuste el tamaño del texto */
+    line-height: 1.5; /* Mejora el espaciado del texto */
+}
+
+/* Eliminar la línea de proceso que estaba entre los pasos */
+.process-line {
+    display: none;
+}
+
+
+/* FAQ */
+.accordion-item {
+    border: 1px solid var(--color-borde);
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.accordion-button {
+    background-color: var(--color-fondo-claro) !important; /* Fondo blanco */
+    color: var(--color-primario) !important; /* Texto verde */
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1.2rem 1.25rem;
+}
+.accordion-button:not(.collapsed) {
+    background-color: var(--color-primario) !important; /* Fondo verde al abrir */
+    color: var(--color-texto-claro) !important; /* Texto blanco */
+    box-shadow: none;
+}
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+.accordion-body {
+    background-color: var(--color-fondo-claro); /* Fondo blanco */
+    color: var(--color-texto-oscuro);
+    padding: 1.25rem;
+    border-top: 1px solid var(--color-borde);
+}
+
+/* Contacto */
+.map-container {
+    height: 450px; /* Altura fija para el mapa */
+    overflow: hidden; /* Asegura que el mapa no se desborde */
+    border-radius: 5px;
+    border: 1px solid var(--color-borde);
+    margin-bottom: 20px; /* Espacio debajo del mapa en móvil */
+}
+
+@media (min-width: 768px) {
+    .map-container {
+        margin-bottom: 0; /* Elimina el margen en pantallas más grandes para que se alinee con el formulario */
+    }
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.contact-form {
+    background-color: var(--color-fondo-claro); /* Fondo blanco */
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid var(--color-borde);
+}
+.contact-form .form-control {
+    border-radius: 3px;
+    border: 1px solid var(--color-borde);
+    padding: 0.75rem 1rem;
+}
+.contact-form .form-control:focus {
+    border-color: var(--color-acento); /* Borde amarillo mandarina al enfocar */
+    box-shadow: 0 0 0 0.25rem rgba(255, 204, 0, 0.25); /* Sombra suave del acento */
+}
+
+
+/* Footer */
+.site-footer {
+    background-color: var(--color-primario); /* Mismo color que la barra de navegación */
+    color: var(--color-texto-claro); /* Texto blanco */
+    padding: 30px 0; /* Ajuste de padding */
+    font-size: 0.9rem;
+}
+
+.site-footer .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los enlaces se envuelvan en pantallas pequeñas */
+    justify-content: center; /* Centra los enlaces */
+}
+
+.site-footer .footer-links li {
+    margin: 0 12px; /* Espacio entre enlaces */
+}
+
+.site-footer .footer-links a {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    font-size: 0.85rem; /* Más pequeño que el navbar */
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Evita que los enlaces se rompan */
+}
+
+.site-footer .footer-links a:hover {
+    color: var(--color-acento);
+}
+
+.site-footer .social-icons a i {
+    color: var(--color-texto-claro);
+    transition: color 0.3s ease;
+}
+
+.site-footer .social-icons a:hover i {
+    color: var(--color-acento);
+}
+
+.footer-contact-info { /* Nuevo estilo para la info de contacto en el footer */
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Línea divisoria sutil */
+}
+
+.footer-contact-info h5 {
+    color: var(--color-texto-claro);
+    margin-bottom: 15px;
+}
+
+.footer-contact-info p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.footer-contact-info a {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact-info a:hover {
+    color: var(--color-acento);
+}
+
+.footer-contact-info i {
+    color: var(--color-texto-claro); /* Iconos de info en blanco */
+    margin-right: 8px;
+}
+
+/* Iconos Flotantes de Redes Sociales (Mantenidos para visibilidad constante) */
+.floating-social-icons {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+.floating-social-icons a {
+    display: block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    color: var(--color-texto-claro);
+    font-size: 1.6rem;
+    margin-bottom: 3px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border-radius: 0;
+}
+.floating-social-icons a:hover {
+    transform: translateX(-8px);
+}
+/* Mantener colores específicos para WhatsApp, Facebook, Instagram para reconocimiento */
+.floating-social-icons .whatsapp {
+    background-color: #25D366; /* Verde WhatsApp */
+}
+.floating-social-icons .facebook {
+    background-color: #1877F2; /* Azul Facebook */
+}
+.floating-social-icons .instagram {
+    background-color: #E4405F; /* Rojo Instagram */
+}
